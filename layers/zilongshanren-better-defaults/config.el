@@ -48,7 +48,7 @@
                      c++-mode
                      objc-mode
                      latex-mode
-                     js-mode
+                     js2-mode
                      plain-tex-mode))
            (let ((mark-even-if-inactive transient-mark-mode))
              (indent-region (region-beginning) (region-end) nil))))))
@@ -97,7 +97,7 @@
                                           (projectile-cleanup-known-projects)))))
 
 ;; change evil initial mode state
-(menu-bar-mode t)
+(menu-bar-mode -1)
 
 (add-hook 'before-save-hook
           (lambda ()
@@ -119,6 +119,7 @@
               (let (case-fold-search)
                 (looking-at "\\b[[:upper:]]\\{2\\}[[:lower:]]"))
               (capitalize-word 1)))))
+
 
 (define-minor-mode dubcaps-mode
   "Toggle `dubcaps-mode'.  Converts words in DOuble CApitals to
@@ -169,3 +170,6 @@ Single Capitals as you type."
             ',variable ,value))
 
 (csetq ediff-diff-options "-w")
+
+
+(add-hook 'js2-mode-hook 'pcre-mode)

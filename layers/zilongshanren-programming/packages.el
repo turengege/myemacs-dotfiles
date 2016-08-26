@@ -249,7 +249,7 @@
   (progn
     (spacemacs|define-jump-handlers js2-mode)
 
-    (setq company-backends-js2-mode '((company-dabbrev-code :with company-keywords company-etags)
+    (setq company-backends-js2-mode '(company-tern (company-dabbrev-code :with company-keywords company-etags)
                                       company-files company-dabbrev))
 
     (zilongshanren|toggle-company-backends company-tern)

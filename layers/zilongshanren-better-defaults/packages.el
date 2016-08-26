@@ -70,3 +70,4 @@
     (evilified-state-evilify profiler-report-mode profiler-report-mode-map)))
 
 ;;; packages.el ends here
+

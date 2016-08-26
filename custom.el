@@ -14,6 +14,7 @@
  '(ctags-update-delay-seconds 1024)
  '(erc-nick "zilongshanren")
  '(erc-port 6666)
+ '(global-linum-mode t)
  '(evil-want-C-i-jump t)
  '(evil-want-Y-yank-to-eol t)
  '(exec-path-from-shell-arguments (quote ("-l")))
@@ -50,6 +51,7 @@
  '(ring-bell-function (quote ignore))
  '(safe-local-variable-values
    (quote
+
     ((eval setenv "PYTHONPATH" "/Users/guanghui/cocos2d-x/tools/cocos2d-console/plugins:/Users/guanghui/cocos2d-x/tools/cocos2d-console/bin"))))
  '(sp-show-pair-from-inside t t)
  '(tags-revert-without-query t)
@@ -77,3 +79,4 @@
  '(sp-show-pair-match-face ((t (:background "#272822" :foreground "gray" :inverse-video t :weight normal)))))
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+

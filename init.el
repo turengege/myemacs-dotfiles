@@ -10,10 +10,13 @@
      ivy
      react
      better-defaults
+     tern
      github
      osx
      latex
      deft
+     java
+     java-mode
      markdown
      (vinegar :variables vinegar-reuse-dired-buffer t)
      org
@@ -79,7 +82,7 @@
 
 (defun dotspacemacs/init ()
   (setq-default
-   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-https nil
    dotspacemacs-elpa-timeout 5
    dotspacemacs-check-for-update t
    dotspacemacs-editing-style 'vim
@@ -214,3 +217,14 @@
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)
+(setq default-input-method "chinese-py")
+(global-set-key (kbd "s-SPC") 'toggle-input-method)
+
+
+(defun my-fullscreen ()
+  (interactive)
+  (x-send-client-message
+   nil 0 nil "_NET_WM_STATE" 32
+   '(2 "_NET_WM_STATE_FULLSCREEN" 0))
+  )
+(my-fullscreen)
