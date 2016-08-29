@@ -228,3 +228,5 @@
    '(2 "_NET_WM_STATE_FULLSCREEN" 0))
   )
 (my-fullscreen)
+
+

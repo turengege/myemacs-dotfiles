@@ -156,7 +156,10 @@ version 2015-08-21"
     (define-key js2-mode-map "@" 'js-doc-insert-tag)
     (modify-syntax-entry ?_ "w")
     (which-function-mode t)
+    (pcre-mode)
     (setq imenu-create-index-function 'js2-imenu-make-index)
+    (setenv "PATH" (concat (getenv "PATH") ":/usr/local/node/bin"))
+    (setq exec-path (append exec-path '("/usr/local/node/bin")))
 
     (setq mode-name "JS2")
     (define-key js2-mode-map   (kbd "s-.") 'company-tern)
@@ -260,3 +263,15 @@ version 2015-08-21"
       (message "load tags for fireball engine repo...")
       ;; html project donot need C++ tags
       (setq tags-table-list (list (my-create-tags-if-needed "~/Github/fireball/engine/cocos2d")))))))
+
+
+(defun set-auto-mode-alist (auto-mode-cel) (
+                                            let ((auto-mode-set-key (car auto-mode-cel)))
+                                             (setq auto-mode-alist
+                                                   (mapcar
+                                                    (lambda (one-auto-mode-cel)
+                                                      (if (string= auto-mode-set-key (car one-auto-mode-cel))
+                                                          auto-mode-cel
+                                                        one-auto-mode-cel
+                                                        ))
+                                                    auto-mode-alist))))

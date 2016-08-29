@@ -82,3 +82,11 @@
        (if (eq (car company-backends) ',backend)
            (setq-local company-backends (delete ',backend company-backends))
          (push ',backend company-backends)))))
+
+
+
+
+(set-auto-mode-alist '("\\.js\\'" . js2-mode))
+;; (require 'alist )
+;; (set-alist 'auto-mode-alist "\\.js\\'" js2-mode)
+(add-to-list 'interpreter-mode-alist '("node" . js2-mode))

@@ -172,4 +172,3 @@ Single Capitals as you type."
 (csetq ediff-diff-options "-w")
 
 
-(add-hook 'js2-mode-hook 'pcre-mode)
