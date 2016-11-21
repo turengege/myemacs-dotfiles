@@ -160,10 +160,13 @@ version 2015-08-21"
     (setq imenu-create-index-function 'js2-imenu-make-index)
     (setenv "PATH" (concat (getenv "PATH") ":/usr/local/node/bin"))
     (setq exec-path (append exec-path '("/usr/local/node/bin")))
-
+    ;; (setq-default flycheck-disabled-checkers
+    ;;               (append flycheck-disabled-checkers
+    ;;                       '(javascript-jshint)))
     (setq mode-name "JS2")
     (define-key js2-mode-map   (kbd "s-.") 'company-tern)
     (spacemacs/toggle-syntax-checking-on)
+    (spacemacs/toggle-automatic-symbol-highlight-on)
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))
 

@@ -84,9 +84,41 @@
          (push ',backend company-backends)))))
 
 
+(setq auto-mode-alist
+      (append
+       '(("\\.js\\'" . js2-mode))
+       auto-mode-alist))
 
+;; (set-auto-mode-alist '("\\.js\\'" . js2-mode))
 
-(set-auto-mode-alist '("\\.js\\'" . js2-mode))
 ;; (require 'alist )
 ;; (set-alist 'auto-mode-alist "\\.js\\'" js2-mode)
+
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
+
+
+(defvar js2-es6-mode-keywords
+  '(
+    ("\\<\\(process\\)\\>" 1 font-lock-type-face)
+    ("\\<\\(module\\)\\>" 1 font-lock-type-face)
+    ("\\<\\(then\\)\\>" 1 font-lock-type-face)
+    ("\\<\\(on\\)\\>" 1 font-lock-type-face)
+    ("\\<\\(catch\\)\\>" 1 font-lock-type-face)
+    ("\\<\\(map\\)\\>" 1 font-lock-type-face)
+    ("\\<\\(forEach\\)\\>" 1 font-lock-type-face)
+    ("\\<\\(require\\)\\>" 1 font-lock-type-face)
+    ("\\<\\(console\\)\\>" 1 font-lock-type-face)
+    ("\\<\\(exports\\)\\>" 1 font-lock-variable-name-face)
+    ("\\<\\(self\\)\\>" 1 font-lock-keyword-face)
+    ("\\<\\(Map\\)\\>" 1 font-lock-keyword-face)
+    ("\\<\\(Set\\)\\>" 1 font-lock-keyword-face)
+    ("\\<\\(Object\\)\\>" 1 font-lock-keyword-face)
+    ("\\<\\(setInterval\\)\\>" 1 font-keyword-face)
+    ("\\<\\(Array\\)\\>" 1 font-lock-keyword-face)
+    ("\\<\\(yield\\)\\>" 1 font-lock-keyword-face)
+    ("\\<\\(await\\)\\>" 1 font-lock-keyword-face)
+    ("\\<\\(Promise\\)\\>" 1 font-lock-keyword-face)
+    ("\\<\\(async\\)\\>" 1 font-lock-keyword-face)
+    ))
+
+(font-lock-add-keywords 'js2-mode js2-es6-mode-keywords)
