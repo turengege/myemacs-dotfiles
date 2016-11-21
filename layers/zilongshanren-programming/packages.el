@@ -172,6 +172,7 @@
 (defun zilongshanren-programming/init-flycheck-package ()
   (use-package flycheck-package))
 
+
 (defun zilongshanren-programming/init-lispy ()
   (use-package lispy
     :defer t
@@ -220,6 +221,7 @@
     (progn
       (setq flycheck-display-errors-delay 0.9)
       (setq flycheck-idle-change-delay 2.0)
+      (flycheck-add-mode 'javascript-eslint 'web-mode)
       )))
 
 (defun zilongshanren-programming/post-init-eldoc ()
