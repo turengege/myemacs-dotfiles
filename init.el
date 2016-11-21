@@ -221,12 +221,12 @@
 (global-set-key (kbd "s-SPC") 'toggle-input-method)
 
 
-(defun my-fullscreen ()
-  (interactive)
-  (x-send-client-message
-   nil 0 nil "_NET_WM_STATE" 32
-   '(2 "_NET_WM_STATE_FULLSCREEN" 0))
-  )
-(my-fullscreen)
+;(defun my-fullscreen ()
+  ;(interactive)
+  ;(x-send-client-message
+   ;nil 0 nil "_NET_WM_STATE" 32
+   ;'(2 "_NET_WM_STATE_FULLSCREEN" 0))
+  ;)
+;(my-fullscreen)
 
 
