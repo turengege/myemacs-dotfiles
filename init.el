@@ -16,6 +16,7 @@
      latex
      deft
      java
+     docker
      java-mode
      markdown
      (vinegar :variables vinegar-reuse-dired-buffer t)
@@ -217,8 +218,8 @@
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)
-(setq default-input-method "chinese-py")
-(global-set-key (kbd "s-SPC") 'toggle-input-method)
+;; (setq default-input-method "chinese-py")
+;; (global-set-key (kbd "s-SPC") 'toggle-input-method)
 
 
 ;(defun my-fullscreen ()
