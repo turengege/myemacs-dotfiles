@@ -108,11 +108,13 @@
     ("\\<\\(forEach\\)\\>" 1 font-lock-type-face)
     ("\\<\\(require\\)\\>" 1 font-lock-type-face)
     ("\\<\\(console\\)\\>" 1 font-lock-type-face)
+    ("\\<\\(JSON\\)\\>" 1 font-lock-type-face)
     ("\\<\\(exports\\)\\>" 1 font-lock-variable-name-face)
     ("\\<\\(self\\)\\>" 1 font-lock-keyword-face)
     ("\\<\\(Map\\)\\>" 1 font-lock-keyword-face)
     ("\\<\\(Set\\)\\>" 1 font-lock-keyword-face)
     ("\\<\\(Object\\)\\>" 1 font-lock-keyword-face)
+    ("\\<\\(Array\\)\\>" 1 font-lock-keyword-face)
     ("\\<\\(setInterval\\)\\>" 1 font-keyword-face)
     ("\\<\\(Array\\)\\>" 1 font-lock-keyword-face)
     ("\\<\\(yield\\)\\>" 1 font-lock-keyword-face)
@@ -122,3 +124,11 @@
     ))
 
 (font-lock-add-keywords 'js2-mode js2-es6-mode-keywords)
+
+
+;; (setq racket-racket-program "racket")
+;; (setq racket-raco-program "raco")
+;; (add-hook 'racket-mode-hook
+;;           (lambda ()
+;;             (define-key racket-mode-map (kbd "C-x C-j") 'racket-run)))
+;; ;; (setq tab-always-indent 'complete) ;; 使用tab自动补全

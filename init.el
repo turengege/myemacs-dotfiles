@@ -1,4 +1,5 @@
 (defun dotspacemacs/layers ()
+
   (setq-default
    dotspacemacs-distribution 'spacemacs
    dotspacemacs-enable-lazy-installation 'nil
@@ -17,6 +18,8 @@
      deft
      java
      docker
+     racket-mode
+     ;; scribble-mode
      java-mode
      markdown
      (vinegar :variables vinegar-reuse-dired-buffer t)
@@ -95,7 +98,7 @@
    dotspacemacs-themes '(solarized-light solarized-dark)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 14
+                               :size 18
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -164,7 +167,8 @@
   ;;解决org表格里面中英文对齐的问题
   (when (configuration-layer/layer-usedp 'chinese)
     (when (and (spacemacs/system-is-mac) window-system)
-      (spacemacs//set-monospaced-font "Source Code Pro" "Hiragino Sans GB" 14 16)))
+      (spacemacs//set-monospaced-font "Source Code Pro" "Hiragino Sans GB" 16 18)))
+
 
   (fset 'evil-visual-update-x-selection 'ignore)
 
@@ -229,5 +233,7 @@
    ;'(2 "_NET_WM_STATE_FULLSCREEN" 0))
   ;)
 ;(my-fullscreen)
+
+
 
 

@@ -168,7 +168,7 @@ version 2015-08-21"
     (spacemacs/toggle-syntax-checking-on)
     (spacemacs/toggle-automatic-symbol-highlight-on)
     (setq forward-sexp-function nil)
-    (set (make-local-variable 'semantic-mode) nil)))
+    (iset (make-local-variable 'semantic-mode) nil)))
 
 (defun my-which-function ()
   ;; clean the imenu cache
@@ -278,3 +278,12 @@ version 2015-08-21"
                                                         one-auto-mode-cel
                                                         ))
                                                     auto-mode-alist))))
+
+
+(defun my-racket-mode-hook ()
+  (progn
+    (evil-smartparens-mode)
+    (pcre-mode)
+    (paredit-mode )
+    (highlight-parentheses-mode )
+    (spacemacs/toggle-automatic-symbol-highlight-on )))

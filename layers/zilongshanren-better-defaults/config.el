@@ -40,6 +40,7 @@
                      lisp-mode
                      clojure-mode
                      scheme-mode
+                     racket-mode
                      haskell-mode
                      ruby-mode
                      rspec-mode

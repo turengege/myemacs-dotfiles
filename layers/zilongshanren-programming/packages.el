@@ -155,7 +155,7 @@
 
     (add-hook 'racket-mode-hook (lambda () (lispy-mode 1)))
     (add-hook 'racket-repl-mode-hook #'(lambda () (lispy-mode t)))
-    (add-hook 'racket-repl-mode-hook #'(lambda () (smartparens-mode t)))
+    ;; (add-hook 'racket-repl-mode-hook #'(lambda () (smartparens-mode t)))
     ))
 
 (defun zilongshanren-programming/post-init-json-mode ()
@@ -513,3 +513,7 @@
     (setq company-c-headers-path-user
           (quote
            ("/Users/guanghui/cocos2d-x/cocos/platform" "/Users/guanghui/cocos2d-x/cocos" "." "/Users/guanghui/cocos2d-x/cocos/audio/include/")))))
+
+
+
+(add-hook 'racket-mode-hook 'my-racket-mode-hook )
