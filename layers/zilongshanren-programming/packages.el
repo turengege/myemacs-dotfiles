@@ -154,8 +154,7 @@
          (define-key racket-repl-mode-map (kbd "[") nil)))
 
     (add-hook 'racket-mode-hook (lambda () (lispy-mode 1)))
-    (add-hook 'racket-repl-mode-hook #'(lambda () (lispy-mode t)))
-    ;; (add-hook 'racket-repl-mode-hook #'(lambda () (smartparens-mode t)))
+    ;; (add-hook 'racket-repl-mode-hook #'(lambda () (lispy-mode t)))
     ))
 
 (defun zilongshanren-programming/post-init-json-mode ()
@@ -184,7 +183,8 @@
       (add-hook 'inferior-emacs-lisp-mode-hook (lambda () (lispy-mode 1)))
       ;; (add-hook 'spacemacs-mode-hook (lambda () (lispy-mode 1)))
       (add-hook 'clojure-mode-hook (lambda () (lispy-mode 1)))
-      (add-hook 'scheme-mode-hook (lambda () (lispy-mode 1)))
+      (add-hook 'scheme-mode-hook (lambda () (lispy-mode 14)))
+      (add-hook 'racket-mode-hook (lambda () (lispy-mode 14)))
       (add-hook 'cider-repl-mode-hook (lambda () (lispy-mode 1))))
     :config
     (progn
@@ -219,10 +219,18 @@
 (defun zilongshanren-programming/post-init-flycheck ()
   (with-eval-after-load 'flycheck
     (progn
+
+      (setq-default flycheck-disabled-checkers
+                    (append flycheck-disabled-checkers
+                            '(javascript-jshint)))
       (setq flycheck-display-errors-delay 0.9)
       (setq flycheck-idle-change-delay 2.0)
-      (flycheck-add-mode 'javascript-eslint 'web-mode)
+      ;; (flycheck-add-mode 'javascript-eslint 'web-mode)
+      ;; (flycheck-add-mode 'javascript-eslint 'js2-mode)
+      ;; (exec-path-from-shell-initialize)
+      ;; (setq flycheck-eslintrc "/Users/liurui/eslintrc")
       )))
+
 
 (defun zilongshanren-programming/post-init-eldoc ()
   (setq eldoc-idle-delay 0.01))

@@ -159,16 +159,19 @@ version 2015-08-21"
     (pcre-mode)
     (setq imenu-create-index-function 'js2-imenu-make-index)
     (setenv "PATH" (concat (getenv "PATH") ":/usr/local/node/bin"))
+    (setenv "PATH" (concat (getenv "PATH") ":/Users/liurui/bin"))
+    (setenv "PATH" (concat (getenv "PATH") "/Users/liurui/.nvm/versions/node/v7.1.0/lib/bin"))
     (setq exec-path (append exec-path '("/usr/local/node/bin")))
-    ;; (setq-default flycheck-disabled-checkers
-    ;;               (append flycheck-disabled-checkers
-    ;;                       '(javascript-jshint)))
+    (setq exec-path (append exec-path '("/Users/liurui/bin")))
+    (setq exec-path (append exec-path '("/Users/liurui/.nvm/versions/node/v7.1.0/bin")))
+
+
     (setq mode-name "JS2")
     (define-key js2-mode-map   (kbd "s-.") 'company-tern)
     (spacemacs/toggle-syntax-checking-on)
     (spacemacs/toggle-automatic-symbol-highlight-on)
     (setq forward-sexp-function nil)
-    (iset (make-local-variable 'semantic-mode) nil)))
+    (set (make-local-variable 'semantic-mode) nil)))
 
 (defun my-which-function ()
   ;; clean the imenu cache
@@ -284,6 +287,7 @@ version 2015-08-21"
   (progn
     (evil-smartparens-mode)
     (pcre-mode)
-    (paredit-mode )
-    (highlight-parentheses-mode )
+    (paredit-mode)
+    (lispy-mode t)
+    (highlight-parentheses-mode)
     (spacemacs/toggle-automatic-symbol-highlight-on )))

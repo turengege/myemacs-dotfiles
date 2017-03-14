@@ -95,7 +95,8 @@
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 7))
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(solarized-light solarized-dark)
+  ;dotspacemacs-themes '(solarized-light atom-one-dark)
+  ;dotspacemacs-themes '(atom-one-dark)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
                                :size 18
@@ -143,8 +144,7 @@
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    dotspacemacs-default-package-repository nil
-   dotspacemacs-whitespace-cleanup 'changed
-   ))
+   dotspacemacs-whitespace-cleanup 'changed))
 
 (defun dotspacemacs/user-init ()
   (setq configuration-layer--elpa-archives
