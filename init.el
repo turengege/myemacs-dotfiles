@@ -19,6 +19,7 @@
      java
      docker
      racket-mode
+     python
      ;; scribble-mode
      java-mode
      markdown
@@ -31,8 +32,8 @@
      (spell-checking :variables spell-checking-enable-by-default nil)
      gtags
      yaml
-     (python :variables
-             python-test-runner '(nose pytest))
+     ;; (python :variables
+     ;;         python-test-runner '(nose pytest))
      (ruby :variables ruby-enable-enh-ruby-mode t
            ruby-version-manager 'chruby)
      ruby-on-rails
@@ -65,6 +66,8 @@
      zilongshanren
      )
    dotspacemacs-additional-packages '(sicp)
+   ;; dotspacemacs-additional-packages '(vue-mode)
+
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
    '(counsel-projectile magit-gh-pulls magit-gitflow org-projectile evil-mc
@@ -95,8 +98,7 @@
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 7))
    dotspacemacs-scratch-mode 'text-mode
-  ;dotspacemacs-themes '(solarized-light atom-one-dark)
-  ;dotspacemacs-themes '(atom-one-dark)
+   dotspacemacs-themes '(liurui-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
                                :size 18
@@ -108,7 +110,7 @@
    dotspacemacs-emacs-leader-key "M-m"
    dotspacemacs-major-mode-leader-key ","
    dotspacemacs-major-mode-emacs-leader-key "C-M-m"
-   dotspacemacs-emacs-command-key ":"
+   dotspacemacs-emacs-command-key "SPC"
    dotspacemacs-distinguish-gui-tab nil
    dotspacemacs-remap-Y-to-y$ t
    dotspacemacs-retain-visual-state-on-shift t
@@ -235,5 +237,6 @@
 ;(my-fullscreen)
 
 
-
+;; (setq dotspacemacs-additional-packages
+;;       '((vue-mode :location (recipe :fetcher github :repo "turengege/vue-mode"))))
 

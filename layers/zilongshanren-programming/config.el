@@ -89,10 +89,12 @@
        '(("\\.js\\'" . js2-mode))
        auto-mode-alist))
 
-;; (set-auto-mode-alist '("\\.js\\'" . js2-mode))
+(setq auto-mode-alist
+      (append
+       '(("\\.vue\\'" . web-mode))
+       auto-mode-alist))
 
-;; (require 'alist )
-;; (set-alist 'auto-mode-alist "\\.js\\'" js2-mode)
+
 
 (add-to-list 'interpreter-mode-alist '("node" . js2-mode))
 

@@ -173,4 +173,3 @@ Single Capitals as you type."
 
 (csetq ediff-diff-options "-w")
 
-

@@ -9,6 +9,7 @@
 ;;
 ;;; License: GPLv3
 
+
 (defun zilongshanren/org-ispell ()
   "Configure `ispell-skip-region-alist' for `org-mode'."
   (make-local-variable 'ispell-skip-region-alist)

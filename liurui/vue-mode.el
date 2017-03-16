@@ -1,0 +1,1 @@
+/Users/liurui/project/liurui/vue2-mode/vue-mode.el

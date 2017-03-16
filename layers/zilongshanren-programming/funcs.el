@@ -283,11 +283,50 @@ version 2015-08-21"
                                                     auto-mode-alist))))
 
 
+(defun my-add-pretty-lambda ()
+  "make some word or string show as pretty Unicode symbols"
+  (setq prettify-symbols-alist
+        '(
+          ("lambda" . 955)              ;λ
+          ("->" . 8594)                 ;→
+          ("=>" . 8658)                 ;⇒
+          ("alpha" . 945)               ;α
+          ("beta" . 946)                ;β
+          ("theta" . 952)               ;θ
+          ("pi" . 960)                  ;π
+          ("omega" . 969)               ;ω
+          ("eulerconstant" . 8455)      ;ℇ
+          ("sum" . 8721)                ;∑
+          ("xi" . ?ξ ) ;
+          ("xil" . ?𝜉 ) ;
+          )))
+
 (defun my-racket-mode-hook ()
   (progn
+    (my-add-pretty-lambda)
+    (prettify-symbols-mode 1)
     (evil-smartparens-mode)
     (pcre-mode)
-    (paredit-mode)
     (lispy-mode t)
     (highlight-parentheses-mode)
     (spacemacs/toggle-automatic-symbol-highlight-on )))
+
+
+
+(defun my-vue-mode-hook ()
+  (progn
+    (pcre-mode)
+    (tern-mode)
+    (spacemacs/toggle-auto-completion-on)
+    (spacemacs/toggle-automatic-symbol-highlight-on )))
+
+
+(defun liurui/indent ()
+  (interactive)
+  (if indent-guide-mode
+      (indent-guide-mode 0)
+    (progn
+      (indent-guide-mode 1)
+      (setq indent-guide-delay 0.4)
+      (setq indent-guide-char "┆")
+      (set-face-foreground 'indent-guide-face "#4e9376"))))

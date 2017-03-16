@@ -525,3 +525,16 @@
 
 
 (add-hook 'racket-mode-hook 'my-racket-mode-hook )
+(add-hook 'vue-mode-hook 'my-vue-mode-hook )
+(add-hook 'web-mode-hook 'my-vue-mode-hook )
+(add-hook 'indent-guide-hook 'my-indent-guide-mode-hook)
+
+(defun liurui/indent ()
+  (interactive)
+  (if indent-guide-mode
+      (indent-guide-mode 0)
+      (progn
+        (indent-guide-mode 1)
+        (setq indent-guide-delay 0.9)
+        (set-face-foreground 'indent-guide-face "green"))
+    ))
