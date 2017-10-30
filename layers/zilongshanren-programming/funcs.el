@@ -17,7 +17,8 @@ comment box."
   (let ((e (copy-marker e t)))
     (goto-char b)
     (end-of-line)
-    (insert-char ?  (- fill-column (current-column)))
+    (insert-char ?  (- fill-column         uv_
+(current-column)))
     (comment-box b e 1)
     (goto-char e)
     (set-marker e nil)))
@@ -160,16 +161,16 @@ version 2015-08-21"
     (setq imenu-create-index-function 'js2-imenu-make-index)
     (setenv "PATH" (concat (getenv "PATH") ":/usr/local/node/bin"))
     (setenv "PATH" (concat (getenv "PATH") ":/Users/liurui/bin"))
-    (setenv "PATH" (concat (getenv "PATH") "/Users/liurui/.nvm/versions/node/v7.1.0/lib/bin"))
+    (setenv "PATH" (concat (getenv "PATH") "/Users/liurui/.nvm/versions/node/v7.8.0/lib/bin"))
     (setq exec-path (append exec-path '("/usr/local/node/bin")))
     (setq exec-path (append exec-path '("/Users/liurui/bin")))
-    (setq exec-path (append exec-path '("/Users/liurui/.nvm/versions/node/v7.1.0/bin")))
+    (setq exec-path (append exec-path '("/Users/liurui/.nvm/versions/node/v7.8.0/bin")))
 
 
     (setq mode-name "JS2")
     (define-key js2-mode-map   (kbd "s-.") 'company-tern)
     (spacemacs/toggle-syntax-checking-on)
-    (spacemacs/toggle-automatic-symbol-highlight-on)
+    ;; (spacemacs/toggle-automatic-symbol-highlight-on)
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))
 
@@ -287,19 +288,106 @@ version 2015-08-21"
   "make some word or string show as pretty Unicode symbols"
   (setq prettify-symbols-alist
         '(
-          ("lambda" . 955)              ;λ
-          ("->" . 8594)                 ;→
-          ("=>" . 8658)                 ;⇒
-          ("alpha" . 945)               ;α
-          ("beta" . 946)                ;β
-          ("theta" . 952)               ;θ
-          ("pi" . 960)                  ;π
-          ("omega" . 969)               ;ω
-          ("eulerconstant" . 8455)      ;ℇ
-          ("sum" . 8721)                ;∑
-          ("xi" . ?ξ ) ;
-          ("xil" . ?𝜉 ) ;
-          )))
+          ;; greek
+          ("lambda" . ?λ)      ; 兰布达  波长（小写）；体积
+          ("alpha" . 945)       ;α 角度；系数
+          ("beta" . 946)        ;β 磁通系数；角度；系数
+          ("gamma" . ?γ)       ; 伽马  电导系数（小写）
+          ("GAMMA" . ?Γ)       ;γ 伽马  电导系数（小写）
+          ("delta" . ?δ)       ; 变动；密度；屈光度
+          ("DELTA" . ?Δ)       ; 变动；密度；屈光度
+          ("epsilon" . ?ε)     ; 伊普西龙  对数之基数
+          ("zeta" . ?ζ)        ; 截塔  系数；方位角；阻抗；相对粘度；原子序数
+          ("eta" . ?η)         ;艾塔  磁滞系数；效率（小写）
+          ("theta" . 952)       ;θ 温度；相位角
+          ("iot" . ?ι)         ; 约塔  微小，一点儿
+          ("kappa" . ?κ)       ;卡帕  介质常数
+          ("mu" . ?μ)          ; 缪  磁导系数；微（千分之一）；放大因数（小写）
+          ("nu" . ?ν)          ; 纽  磁阻系数
+          ("xi" . ?ξ )         ;克西
+          ("xil" . ?𝜉 )         ;
+          ("rho" . ?ρ)         ;肉  电阻系数
+          ("omicron" . ?ο)     ;奥密克戎
+          ("sigma" . ?ς)   ; sigma  西格马  总和（大写），表面密度；跨导（小写）
+          ("SIGMA" . ?∑)  ;
+          ("tau" . ?τ)    ;tau  tau  套  时间常数
+          ("phi" . ?φ)    ;phi  fai  佛爱  磁通；角
+          ("pi" . ?π)     ;
+          ("psi" . ?ψ)    ;psi  psai  普西  角速；介质电通量（静电力线）；角
+          ("PSI" . ?Ψ)
+          ("omega" . ?ω)       ; o`miga  欧米伽  欧姆（大写）；角速（小写）；角
+          ("OMEGA" . ?Ω)
+          ("euler" . ?ℇ)                ;欧拉
+
+          ;; misc
+          ("right" . ?✓)
+          ("wrong" . ?✗)
+          ("sectin" . ?§)
+          ("refresh" . ?↺)
+
+          ;; logical
+          ("and" . ?∧)
+          ("or" . ?∨)
+          ("xor" . ?⊻)                  ;异或
+          ("nor" . ?⊽)                  ;或非
+          ("not" . ?¬)
+
+          ;; game
+          ("spade" . ?♠)
+          ("club" . ?♣)
+          ("heart" . ?♥)
+          ("diamond" . ?♦)
+          ("SPADE" . ?♤)
+          ("CLUB" . ?♧)
+          ("HEART" . ?♡)
+          ("DIAMOND" . ?♢)
+          ("king" . ?♚)
+          ("queen" . ?♛)
+          ("rook" . ?♜)
+          ("bishop" . ?♝)
+          ("knight" . ?♞)
+          ("pawn" . ?♟)
+          ("KING" . ?♔)
+          ("QUEEN" . ?♕)
+          ("ROOK" . ?♖)
+          ("BISHOP" . ?♗)
+          ("KNIGHT" . ?♘)
+          ("PAWN" . ?♙)
+          ;; music
+          ("note" . ?♩)
+          ;; math
+          ("integral" , ?∫)
+          ("infinite" . ?∞ )           ;
+          ("root" . ?√)
+          ("cube-root" . ?∛)
+          ("forth-root" . ?∜)
+          ("belong?" . ?∈)
+          ("contain?" . ?∋)
+          ("subset?" . ?⊂)
+          ("superset?" . ?⊃)
+          ("union" . ?∪)
+          ("intersection" . ?∩)
+          ("->" . ?→)
+          ("=>" . ?⇒)
+          ("<=" . ?≤)
+          (">=" . ?≥)
+          ("neq" . ?≠)
+          ("almost" . ?≈)
+          ("approximate" . ?⩰)
+          ("===" . ?≡)
+          ("real" . ?ℝ)
+          ("natural" . ?ℕ)
+          ("rational" . ?ℚ)
+          ("imaginary" . ?ⅈ)
+          ("imaginaryj" . ?ⅉ))))
+
+(defun liurui/replace-symbol ()
+    (interactive)
+    (if prettify-symbols-mode
+        (prettify-symbols-mode 0)
+        (progn
+          (my-add-pretty-lambda)
+          (prettify-symbols-mode 1))))
 
 (defun my-racket-mode-hook ()
   (progn
@@ -316,17 +404,62 @@ version 2015-08-21"
 (defun my-vue-mode-hook ()
   (progn
     (pcre-mode)
-    (tern-mode)
+    ;; (tagedit-mode 1)
     (spacemacs/toggle-auto-completion-on)
     (spacemacs/toggle-automatic-symbol-highlight-on )))
 
 
 (defun liurui/indent ()
   (interactive)
-  (if indent-guide-mode
-      (indent-guide-mode 0)
     (progn
-      (indent-guide-mode 1)
-      (setq indent-guide-delay 0.4)
-      (setq indent-guide-char "┆")
-      (set-face-foreground 'indent-guide-face "#4e9376"))))
+    (indent-guide-mode)
+    (if indent-guide-mode
+        (progn
+          (setq indent-guide-delay 0.4)
+          (setq indent-guide-char "┆")
+          (set-face-foreground 'indent-guide-face "#4e9376")))))
+
+
+;; (defun my-web-mode-hook ()
+;;   "Hook for `web-mode'."
+;;   (set (make-local-variable 'company-backends)
+;;        '(company-tern company-web-html company-yasnippet company-files)))
+
+;; (add-hook 'web-mode-hook 'my-web-mode-hook)
+
+;; ;; Enable JavaScript completion between <script>...</script> etc.
+;; (defadvice company-tern (before web-mode-set-up-ac-sources activate)
+;;   "Set `tern-mode' based on current language before running company-tern."
+;;   (message "advice")
+;;   (if (equal major-mode 'web-mode)
+;;       (let ((web-mode-cur-language
+;;              (web-mode-language-at-pos)))
+;;         (if (or (string= web-mode-cur-language "javascript")
+;;                 (string= web-mode-cur-language "jsx")
+;;                 )
+;;             (unless tern-mode (tern-mode))
+;;           (if tern-mode (tern-mode -1))))))
+
+(add-hook 'web-mode-hook (lambda ()
+                           (set (make-local-variable 'company-backends) '(company-web-html))
+                           (company-mode t)))
+
+;; (defun setup-tide-mode ()
+;;   (interactive)
+;;   (tide-setup)
+;;   (flycheck-mode +1)
+;;   (setq flycheck-check-syntax-automatically '(save mode-enabled))
+;;   (eldoc-mode +1)
+;;   (tide-hl-identifier-mode +1)
+;;   ;; company is an optional dependency. You have to
+;;   ;; install it separately via package-install
+;;   ;; `M-x package-install [ret] company`
+;;   (company-mode +1))
+
+;; ;; aligns annotation to the right hand side
+;; (setq company-tooltip-align-annotations t)
+
+;; ;; formats the buffer before saving
+;; (add-hook 'before-save-hook 'tide-format-before-save)
+
+;; (add-hook 'typescript-mode-hook #'setup-tide-mode)

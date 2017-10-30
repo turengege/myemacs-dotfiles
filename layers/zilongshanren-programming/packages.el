@@ -15,7 +15,7 @@
 (setq zilongshanren-programming-packages
       '(
         css-mode
-        paredit
+        pareditregistry.gogen.com/base/
         lispy
         cmake-font-lock
         cmake-mode
@@ -126,10 +126,13 @@
 ;;       (setq inferior-js-program-command "node"))))
 
 (defun zilongshanren-programming/post-init-web-mode ()
-  (setq company-backends-web-mode '((company-dabbrev-code
+  (setq company-backends-web-mode '((
+                                     company-web-html
+                                     company-dabbrev-code
                                      company-keywords
                                      company-etags)
-                                    company-files company-dabbrev)))
+                                    company-files
+                                    company-dabbrev)))
 
 
 
@@ -397,7 +400,6 @@
 
     ;; (add-hook 'after-save-hook 'my-auto-update-tags-when-save)
     (add-hook 'js2-mode-hook 'my-setup-develop-environment)
-    (add-hook 'web-mode-hook 'my-setup-develop-environment)
     (add-hook 'c++-mode-hook 'my-setup-develop-environment)
     (add-hook 'c-mode-hook 'my-setup-develop-environment)
 
@@ -525,16 +527,6 @@
 
 
 (add-hook 'racket-mode-hook 'my-racket-mode-hook )
-(add-hook 'vue-mode-hook 'my-vue-mode-hook )
-(add-hook 'web-mode-hook 'my-vue-mode-hook )
 (add-hook 'indent-guide-hook 'my-indent-guide-mode-hook)
-
-(defun liurui/indent ()
-  (interactive)
-  (if indent-guide-mode
-      (indent-guide-mode 0)
-      (progn
-        (indent-guide-mode 1)
-        (setq indent-guide-delay 0.9)
-        (set-face-foreground 'indent-guide-face "green"))
-    ))
+(add-hook 'web-mode-hook 'my-vue-mode-hook )
+(add-hook 'web-mode-hook 'liurui/web-mode-hook-of-company)

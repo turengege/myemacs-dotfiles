@@ -7,7 +7,9 @@
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
+     demo-it
      helm
+     c-c++
      ivy
      react
      better-defaults
@@ -65,8 +67,9 @@
                       :disabled-for org markdown)
      zilongshanren
      )
-   dotspacemacs-additional-packages '(sicp)
-   ;; dotspacemacs-additional-packages '(vue-mode)
+   ;; dotspacemacs-additional-packages '(sicp demo-it)
+   ;; dotspacemacs-additional-packages '(all-the-icons sicp realgud neotree )
+   dotspacemacs-additional-packages '(all-the-icons sicp realgud )
 
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
@@ -80,7 +83,7 @@
                         leuven-theme gh-md evil-lisp-state spray lorem-ipsum
                         ac-ispell ace-jump-mode auto-complete auto-dictionary
                         clang-format define-word google-translate disaster epic
-                        fancy-battery neotree org-present orgit orglue spacemacs-theme
+                        fancy-battery org-present orgit orglue spacemacs-theme
                         helm-flyspell flyspell-correct-helm clean-aindent-mode
                         helm-c-yasnippet ace-jump-helm-line helm-make helm-projectile
                         helm-themes helm-swoop helm-spacemacs-help smeargle)
@@ -101,7 +104,7 @@
    dotspacemacs-themes '(liurui-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 18
+                               :size 20
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)

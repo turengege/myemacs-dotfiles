@@ -37,6 +37,7 @@
       (and (not current-prefix-arg)
            (member major-mode
                    '(emacs-lisp-mode
+                     tide-mode
                      lisp-mode
                      clojure-mode
                      scheme-mode
@@ -173,3 +174,48 @@ Single Capitals as you type."
 
 (csetq ediff-diff-options "-w")
 
+
+
+;; (setq projectile-switch-project-action 'neotree-projectile-action)
+
+(defun neotree-ffip-project-dir ()
+  "Open NeoTree using the git root."
+  (interactive)
+  (let ((project-dir (ffip-project-root))
+        (file-name (buffer-file-name)))
+    (if project-dir
+        (progn
+          (neotree-dir project-dir)
+          (neotree-find file-name))
+      (message "Could not find git project root."))))
+
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+(spacemacs/set-leader-keys "t t" 'neotree-toggle)
+(spacemacs/set-leader-keys "t p p" 'neotree-projectile-action)
+(spacemacs/set-leader-keys "t p f" 'neotree-ffip-project-dir)
+
+
+
+(setq sql-mysql-login-params
+      '((user :default "root")
+        (password :default "root")
+        (database :default "police")
+        (server :default "127.0.0.1")
+        (port :default 3387)))
+
+(defun my/neotree-hook (_unused)
+  (linum-mode -1))
+(add-hook 'neo-after-create-hook 'my/neotree-hook)
+
+;; (use-package ssh-deploy
+;;   :config
+;;   (defun liurui/deploy-upload-forced ()
+;;     (interactive)
+;;     (ssh-deploy-upload-handler-forced))
+;;   (defun liurui/deploy-upload ()
+;;     (interactive)
+;;     (ssh-deploy-upload-handler)))
+
+;; (defun liurui/deploy-upload-forced ()
+;;   (interactive)
+;;   (ssh-deploy-upload-handler-forced))
